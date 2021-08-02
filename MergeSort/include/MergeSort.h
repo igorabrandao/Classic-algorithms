@@ -17,6 +17,7 @@
 
 #include <iostream>
 #include <string>
+#include "../../lib/Array.h"
 
 using namespace std;
 
@@ -28,15 +29,17 @@ class MergeSort
 {
 private:
     // ***************************************************
-    // ** Attributes
+    // ** Functions
     // ***************************************************
+    void mergeArrays(Array<T> arrX_, Array<T> arrY_, Array<T> arr_, int start_, int end_); // Method to merge 2 arrays
 
 public:
     // ***************************************************
     // ** Functions
     // ***************************************************
-    MergeSort();  // Class constructor
-    ~MergeSort(); // Class Destructor
+    MergeSort(){};                                        // Class constructor
+    ~MergeSort(){};                                       // Class Destructor
+    void mergeSort(Array<T> *arr_, int start_, int end_); // Method to perform the Merge Sort operation
 };
 
 #include "MergeSort.inl"
