@@ -33,7 +33,8 @@ int main()
     intArray.print("");
     cout << endl;
 
-    // TODO: Merge Sort here
+    // Perform the Merge Sort
+    intMergeSort.mergeSort(&intArray, 0, (intArray.size() - 1));
 
     // Print the int array after sorting
     cout << "intArray after Merge Sort:" << endl;

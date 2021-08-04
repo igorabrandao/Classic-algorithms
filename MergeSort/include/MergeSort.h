@@ -31,7 +31,7 @@ private:
     // ***************************************************
     // ** Functions
     // ***************************************************
-    void mergeArrays(Array<T> arrX_, Array<T> arrY_, Array<T> arr_, int start_, int end_); // Method to merge 2 arrays
+    void mergeArrays(Array<T> arrX_, Array<T> arrY_, Array<T> *arr_, int start_, int end_); // Method to merge 2 arrays
 
 public:
     // ***************************************************

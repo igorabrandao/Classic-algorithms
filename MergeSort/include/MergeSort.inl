@@ -11,14 +11,50 @@
  * Method to merge 2 arrays
  */
 template <typename T>
-void mergeArrays(Array<T> arrX_, Array<T> arrY_, Array<T> arr_, int start_, int end_)
+void MergeSort<T>::mergeArrays(Array<T> arrX_, Array<T> arrY_, Array<T> *arr_, int start_, int end_)
 {
 	// Declare the indexes used for the merge operation
-	int mid = (start_ + end_) / 2;
-	int idx1 = start_;
-	int idx2 = mid + 1;
+	int mid = (start_ + end_) / 2; // mid of the input array
+	int xIdx = start_;			   // index of the array X
+	int yIdx = start_;			   // index of the array Y
+	int idx = start_;			   // index of the merged array
 
-	
+	// Loop over both X & Y arrays
+	while (xIdx <= mid && yIdx <= end_)
+	{
+		// Check which current value of array X & Y is smaller
+		if (arrX_.getAt(xIdx) < arrY_.getAt(yIdx))
+		{
+			// Add the current value o X to the merged array
+			arr_->push(arrX_[xIdx]);
+			xIdx++;
+		}
+		else
+		{
+			// Add the current value o Y to the merged array
+			arr_->push(arrY_[yIdx]);
+			yIdx++;
+		}
+
+		// Increment the merge array index
+		idx++;
+	}
+
+	// Add the remaining of X to the merged array
+	while (xIdx <= arrX_.size())
+	{
+		arr_->push(arrX_[xIdx]);
+		idx++;
+		xIdx++;
+	}
+
+	// Add the remaining of Y to the merged array
+	while (yIdx <= arrY_.size())
+	{
+		arr_->push(arrY_[yIdx]);
+		idx++;
+		yIdx++;
+	}
 }
 
 /**
@@ -39,7 +75,7 @@ void MergeSort<T>::mergeSort(Array<T> *arr_, int start_, int end_)
 	Array<T> y;
 
 	// Fill the splitted arrays
-	for (auto i = 0; i < mid; i++)
+	for (auto i = 0; i <= mid; i++)
 		x.push(arr_->getAt(i)); // Fill the first half of the input array
 
 	for (auto i = mid + 1; i <= end_; i++)
